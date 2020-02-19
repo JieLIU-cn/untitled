@@ -92,3 +92,57 @@ class LinkedList:
             node = Node(i)
             temp.next = node
             temp = temp.next
+
+    def swap_nodes(self, d1, d2):
+
+        # 若d1、d2相等，则不需交换
+        if d1 == d2:
+            return
+
+        # 遍历查找d1
+        prevD1 = None
+        D1 = self.head
+        while D1 and D1.data != d1:  # D1为None说明遍历到最后也未匹配或链表为空；D1.data为d1，说明找到了元素对应的节点
+            prevD1 = D1
+            D1 = D1.next
+
+        # 遍历查找d1
+        prevD2 = None
+        D2 = self.head
+        while D2 and D2.data != d1:
+            prevD2 = D2
+            D2 = D2.next
+
+        # 若为空链表或有元素未找到，则不执行
+        if D1 is None or D2 is None:
+            return
+
+        # 交换元素
+        if prevD1:  # 找到了元素
+            prevD1.next = D2
+        else:  # 元素为头结点，所以prev为空
+            self.head = D2
+
+        if prevD2:
+            prevD2.next = D1
+        else:
+            self.head = D1
+
+        # 交换指针
+        temp = D1.next
+        D1.next = D2.next
+        D2.next = temp
+
+
+if __name__ == '__main__':
+    lst = LinkedList
+    lst.append(n1=Node(5))
+    lst.append(Node(4))
+    lst.append(Node(3))
+    lst.append(Node(2))
+    lst.append(Node(1))
+    lst.print_list()
+    lst.swap_nodes(1,4)
+    print('After swapping:')
+    lst.print_list()
+
