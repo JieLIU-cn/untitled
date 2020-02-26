@@ -145,6 +145,7 @@ class Tree(object):
         right_item = self.postorder(node.right)
         return result + left_item + right_item
 
+
 if __name__ == '__main__':
     t = Tree()
     for i in range(1, 11):
