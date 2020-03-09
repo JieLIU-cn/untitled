@@ -6,9 +6,9 @@ def binarysearch(sorted_sequence, target):
         if sorted_sequence[midpoint] == target:
             return midpoint
         elif sorted_sequence[midpoint] > target:
-            right = midpoint-1
+            right = midpoint - 1
         elif sorted_sequence[midpoint] < target:
-            left = midpoint+1
+            left = midpoint + 1
     return None  # 循环到最后也没匹配
 
 
